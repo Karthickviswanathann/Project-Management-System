@@ -1,0 +1,268 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\controllers\\ppmmaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\controllers\\ppmmaincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\services\\interface\\idataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\services\\interface\\idataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\services\\implementation\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\services\\implementation\\dataflow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\dtomodels\\allprojectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\dtomodels\\allprojectdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\services\\dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\services\\dataaccess.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\dtomodels\\usermastedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\dtomodels\\usermastedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\services\\registerservicedefaultdependency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\services\\registerservicedefaultdependency.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\pms-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\pms-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\pms-api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\pms-api.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|d:\\projects\\projectmanagementsystem\\backend\\pms-api\\pms-api\\dtomodels\\respmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C5C248AE-E6CB-3BD2-3A79-9D43E97BDE33}|PMS-Api\\PMS-Api.csproj|solutionrelative:pms-api\\dtomodels\\respmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 13,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AllProjectDto.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\DtoModels\\AllProjectDto.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\DtoModels\\AllProjectDto.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\DtoModels\\AllProjectDto.cs",
+              "RelativeToolTip": "PMS-Api\\DtoModels\\AllProjectDto.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBQAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-01T10:00:06.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "RespModel.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\DtoModels\\RespModel.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\DtoModels\\RespModel.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\DtoModels\\RespModel.cs",
+              "RelativeToolTip": "PMS-Api\\DtoModels\\RespModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T07:42:59.528Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DataFlow.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\Implementation\\DataFlow.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\Services\\Implementation\\DataFlow.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\Implementation\\DataFlow.cs",
+              "RelativeToolTip": "PMS-Api\\Services\\Implementation\\DataFlow.cs",
+              "ViewState": "AgIAACMBAAAAAAAAAAAUwE0BAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T07:21:34.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DataAccess.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\DataAccess.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\Services\\DataAccess.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\DataAccess.cs",
+              "RelativeToolTip": "PMS-Api\\Services\\DataAccess.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAIA8wIcAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T13:56:52.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IDataFlow.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\Interface\\IDataFlow.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\Services\\Interface\\IDataFlow.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\Interface\\IDataFlow.cs",
+              "RelativeToolTip": "PMS-Api\\Services\\Interface\\IDataFlow.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAIA5wBAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T07:21:18.138Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PPMMainController.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Controllers\\PPMMainController.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\Controllers\\PPMMainController.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Controllers\\PPMMainController.cs",
+              "RelativeToolTip": "PMS-Api\\Controllers\\PPMMainController.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAIwEgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T07:10:40.074Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PMS-Api.csproj",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\PMS-Api.csproj",
+              "RelativeDocumentMoniker": "PMS-Api\\PMS-Api.csproj",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\PMS-Api.csproj",
+              "RelativeToolTip": "PMS-Api\\PMS-Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-28T14:52:08.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PMS-Api",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\PMS-Api.csproj",
+              "RelativeDocumentMoniker": "PMS-Api\\PMS-Api.csproj",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\PMS-Api.csproj",
+              "RelativeToolTip": "PMS-Api\\PMS-Api.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-28T16:29:46.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegisterServiceDefaultDependency.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\RegisterServiceDefaultDependency.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\Services\\RegisterServiceDefaultDependency.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Services\\RegisterServiceDefaultDependency.cs",
+              "RelativeToolTip": "PMS-Api\\Services\\RegisterServiceDefaultDependency.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAowEIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T05:33:37.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "PMS-Api\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Properties\\launchSettings.json",
+              "RelativeToolTip": "PMS-Api\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-29T09:26:38.016Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Program.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\Program.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\Program.cs",
+              "RelativeToolTip": "PMS-Api\\Program.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAqwCwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T07:26:02.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\appsettings.json",
+              "RelativeDocumentMoniker": "PMS-Api\\appsettings.json",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\appsettings.json",
+              "RelativeToolTip": "PMS-Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-28T07:22:22.255Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserMasteDto.cs",
+              "DocumentMoniker": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\DtoModels\\UserMasteDto.cs",
+              "RelativeDocumentMoniker": "PMS-Api\\DtoModels\\UserMasteDto.cs",
+              "ToolTip": "D:\\Projects\\ProjectManagementSystem\\Backend\\PMS-Api\\PMS-Api\\DtoModels\\UserMasteDto.cs",
+              "RelativeToolTip": "PMS-Api\\DtoModels\\UserMasteDto.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwBYAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-28T07:10:36.183Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
