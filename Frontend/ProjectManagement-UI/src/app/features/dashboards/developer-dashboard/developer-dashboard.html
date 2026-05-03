@@ -1,0 +1,145 @@
+ <div>
+
+      <app-page-header
+        [title]="'Hi ' + firstName + ', here\\'s your day'"
+        description="Tasks, priorities, and what's coming up.">
+      </app-page-header>
+
+
+
+      <!-- stat cards -->
+
+      <div class="stats-grid">
+
+        <app-stat-card
+          label="Open Tasks"
+          [value]="open"
+          icon="list-todo"
+          accent="primary">
+        </app-stat-card>
+
+
+        <app-stat-card
+          label="In Progress"
+          [value]="inProgress"
+          icon="clock"
+          accent="warning">
+        </app-stat-card>
+
+
+        <app-stat-card
+          label="Completed"
+          [value]="done"
+          icon="check-circle">
+        </app-stat-card>
+
+      </div>
+
+
+
+      <!-- task table -->
+
+      <div class="task-container">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>Task</th>
+
+              <th>Project</th>
+
+              <th>Priority</th>
+
+              <th>Status</th>
+
+              <th>Due</th>
+
+              <th>Hours</th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            <tr *ngFor="let task of sortedTasks">
+
+              <td>
+                {{task.title}}
+              </td>
+
+
+              <td>
+                {{task.projectName}}
+              </td>
+
+
+              <td>
+
+                <app-status-badge
+                  type="priority"
+                  [value]="task.priority">
+                </app-status-badge>
+
+              </td>
+
+
+              <td>
+
+                <app-status-badge
+                  type="task"
+                  [value]="task.status">
+                </app-status-badge>
+
+              </td>
+
+
+              <td>
+
+                {{task.displayDate}}
+
+                <br>
+
+                <small
+                  [class]="task.dueClass">
+
+                  {{task.dueText}}
+
+                </small>
+
+              </td>
+
+
+              <td>
+
+                {{task.estimatedHours}}h
+
+              </td>
+
+            </tr>
+
+
+
+            <tr *ngIf="sortedTasks.length===0">
+
+              <td
+                colspan="6"
+                class="empty-row">
+
+                No tasks assigned. Enjoy the calm!
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>

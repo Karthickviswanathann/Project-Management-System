@@ -1,0 +1,76 @@
+ .stats-grid{
+
+      display:grid;
+
+      grid-template-columns:
+      repeat(3,1fr);
+
+      gap:16px;
+
+      margin-bottom:24px;
+
+    }
+
+
+    .task-container{
+
+      border:1px solid #ddd;
+
+      border-radius:12px;
+
+      overflow:hidden;
+
+    }
+
+
+    table{
+
+      width:100%;
+
+      border-collapse:collapse;
+
+    }
+
+
+    th,td{
+
+      padding:16px;
+
+      text-align:left;
+
+      border-bottom:
+      1px solid #eee;
+
+      font-size:14px;
+
+    }
+
+
+    .empty-row{
+
+      text-align:center;
+
+      color:#6b7280;
+
+    }
+
+
+    .danger{
+
+      color:red;
+
+    }
+
+
+    .warning{
+
+      color:orange;
+
+    }
+
+
+    .normal{
+
+      color:#6b7280;
+
+    }
