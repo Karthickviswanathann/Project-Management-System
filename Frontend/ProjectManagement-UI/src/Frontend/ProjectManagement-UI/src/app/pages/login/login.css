@@ -1,0 +1,45 @@
+.login-container{
+    display:flex;
+    height:100vh;
+}
+
+.left-panel{
+    width:50%;
+    padding:40px;
+    color:white;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+
+.right-panel{
+    width:50%;
+    padding:40px;
+}
+
+.role-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin:20px 0;
+}
+
+.role-card{
+    border:1px solid #ddd;
+    padding:15px;
+    cursor:pointer;
+    border-radius:8px;
+}
+
+.role-card.active{
+    border:2px solid blue;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+}

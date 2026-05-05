@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../Core/services/auth.service';
 import { Router } from '@angular/router';
+import { Role } from '../../shared/mockData/types';
 
 @Component({
   selector: 'app-main-layout',
@@ -58,16 +59,12 @@ mobileOpen = false;
     private router: Router
   ){}
 
-
   get menuItems(){
-
-    return this.navItems.filter(
-      x => x.roles.includes(
-        this.authService.user?.role
-      )
-    );
-
-  }
+  const userRole = this.authService.user?.role;
+  return this.navItems.filter(
+    x => userRole && x.roles.includes(userRole)
+  );
+}
 
 
   logout(): void {
@@ -82,7 +79,7 @@ mobileOpen = false;
 
 
   switchRole(
-    role:string
+    role:Role
   ): void {
 
     this.authService.switchRole(

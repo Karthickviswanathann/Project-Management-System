@@ -1,0 +1,22 @@
+<div *ngIf="user">
+
+    <app-admin-dashboard
+        *ngIf="user.role=='admin'">
+    </app-admin-dashboard>
+
+
+    <app-tl-dashboard
+        *ngIf="user.role=='tl'">
+    </app-tl-dashboard>
+
+
+    <app-developer-dashboard
+        *ngIf="user.role=='developer'">
+    </app-developer-dashboard>
+
+
+    <app-tester-dashboard
+        *ngIf="user.role=='tester'">
+    </app-tester-dashboard>
+
+</div>

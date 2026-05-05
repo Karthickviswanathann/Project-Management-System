@@ -1,0 +1,29 @@
+<div>
+
+  <app-page-header
+    title="Team Workspace"
+    description="Workload, timelines, and risk across your team">
+  </app-page-header>
+
+
+  <div class="dashboard-grid">
+
+    <div class="card">
+
+      <table>
+
+        <tr *ngFor="let emp of team">
+
+          <td>
+            {{emp.name}}
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,39 @@
+.not-found-container{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.box{
+
+    text-align:center;
+
+}
+
+h1{
+
+    font-size:70px;
+
+    margin:0;
+
+}
+
+a{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    text-decoration:none;
+
+    padding:10px 20px;
+
+    border-radius:6px;
+
+}

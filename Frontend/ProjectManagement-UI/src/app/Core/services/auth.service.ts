@@ -1,121 +1,106 @@
 import { Injectable } from '@angular/core';
-import { DEMO_USERS } from '../../shared/mockData/mock-data';
+import { Role } from '../../shared/mockData/types';
+
+// export type Role =
+//   | 'admin'
+//   | 'tl'
+//   | 'developer'
+//   | 'tester';
+
+
+export interface User {
+  id?: string;
+  name: string;
+  email: string;
+  role: string;
+}
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private STORAGE_KEY =
-    'rms_demo_user';
+  private STORAGE_KEY = 'rms_demo_user';
 
 
-  user: any = null;
+  ROLE_LABELS: Record<Role, string> = {
+    admin: 'Admin / Delivery Manager',
+    tl: 'Team Lead / Coordinator',
+    developer: 'Developer',
+    tester: 'Tester / QA'
+  };
 
-  isAuthenticated = false;
 
+  DEMO_USERS: Record<Role, User> = {
 
-  ROLE_LABELS: any = {
+    admin: {
+      name: 'Admin User',
+      email: 'admin@company.com',
+      role: 'admin'
+    },
 
-    admin:
-      'Admin / Delivery Manager',
+    tl: {
+      name: 'Team Lead',
+      email: 'tl@company.com',
+      role: 'tl'
+    },
 
-    tl:
-      'Team Lead / Coordinator',
+    developer: {
+      name: 'Developer',
+      email: 'developer@company.com',
+      role: 'developer'
+    },
 
-    developer:
-      'Developer',
-
-    tester:
-      'Tester / QA'
+    tester: {
+      name: 'Tester',
+      email: 'tester@company.com',
+      role: 'tester'
+    }
 
   };
 
 
+  user: User | null = null;
+
+
   constructor() {
-
     this.loadUser();
-
   }
-
 
 
   private loadUser(): void {
 
     try {
 
-      const raw =
-        localStorage.getItem(
-          this.STORAGE_KEY
-        );
+      const raw = localStorage.getItem(
+        this.STORAGE_KEY
+      );
 
+      if (raw) {
 
-      if(raw){
-
-        this.user =
-          JSON.parse(raw);
-
-        this.isAuthenticated =
-          true;
+        this.user = JSON.parse(raw);
 
       }
 
     }
-    catch{
+    catch {
+
+      this.user = null;
 
     }
 
   }
 
 
-
-  login(role:string): void {
-
-    const selectedUser =
-      DEMO_USERS[role];
-
-    this.persist(
-      selectedUser
-    );
-
-  }
-
-
-
-  switchRole(role:string): void {
-
-    const selectedUser =
-      DEMO_USERS[role];
-
-    this.persist(
-      selectedUser
-    );
-
-  }
-
-
-
-  logout(): void {
-
-    this.persist(
-      null
-    );
-
-  }
-
-
-
   private persist(
-    user:any
+    user: User | null
   ): void {
 
     this.user = user;
 
-    this.isAuthenticated =
-      !!user;
 
-
-    if(user){
+    if (user) {
 
       localStorage.setItem(
         this.STORAGE_KEY,
@@ -123,13 +108,56 @@ export class AuthService {
       );
 
     }
-    else{
+    else {
 
       localStorage.removeItem(
         this.STORAGE_KEY
       );
 
     }
+
+  }
+
+
+  login(
+    role: Role
+  ): void {
+
+    this.persist(
+      this.DEMO_USERS[role]
+    );
+
+  }
+
+
+  switchRole(
+    role: Role
+  ): void {
+
+    this.persist(
+      this.DEMO_USERS[role]
+    );
+
+  }
+
+
+  logout(): void {
+
+    this.persist(null);
+
+  }
+
+
+  isAuthenticated(): boolean {
+
+    return this.user !== null;
+
+  }
+
+
+  getCurrentUser(): User | null {
+
+    return this.user;
 
   }
 

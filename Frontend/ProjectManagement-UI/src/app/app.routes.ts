@@ -9,8 +9,14 @@ import { Tasks } from './pages/tasks/tasks';
 import { Teams } from './pages/teams/teams';
 
 import { MainLayout } from './layouts/main-layout/main-layout';
-
+import { Notfound } from './pages/notfound/notfound';
 export const routes: Routes = [
+
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full'
+  },
 
   {
     path: 'login',
@@ -52,13 +58,13 @@ export const routes: Routes = [
         path: 'teams',
         component: Teams
       }
+
     ]
   },
 
   {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
+    path: '**',
+    component: Notfound
   }
 
 ];
