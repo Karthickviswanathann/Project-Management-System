@@ -1,91 +1,76 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterOutlet } from '@angular/router';
+
 import { AuthService } from '../../Core/services/auth.service';
-import { Router } from '@angular/router';
+import { SidebarService } from '../../Core/services/sidebar.service';
+import { SidebarComponent } from '../../pages/sidebar';
 import { Role } from '../../shared/mockData/types';
+import {ButtonComponent} from "../../ui-elements/button";
+import {InputComponent} from "../../ui-elements/input";
 
 @Component({
   selector: 'app-main-layout',
-  imports: [],
+  standalone: true,
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    SidebarComponent,
+    ButtonComponent,
+    InputComponent
+  ],
   templateUrl: './main-layout.html',
-  styleUrl: './main-layout.css',
+  styleUrl: './main-layout.css'
 })
-export class MainLayout {
 
-mobileOpen = false;
 
-  navItems = [
+export class MainLayout implements OnInit {
 
-    {
-      label:'Dashboard',
-      route:'/dashboard',
-      roles:['admin','tl','developer','tester']
-    },
+   ngOnInit(): void {
+    console.log('MainLayout initialized. Current user:', this.authService.user);
 
-    {
-      label:'Projects',
-      route:'/projects',
-      roles:['admin','tl','developer','tester']
-    },
-
-    {
-      label:'Allocation',
-      route:'/allocation',
-      roles:['admin','tl']
-    },
-
-    {
-      label:'Teams',
-      route:'/teams',
-      roles:['admin','tl']
-    },
-
-    {
-      label:'Resources',
-      route:'/resources',
-      roles:['admin','tl']
-    },
-
-    {
-      label:'Tasks',
-      route:'/tasks',
-      roles:['admin','tl','developer','tester']
-    }
-
-  ];
+    this.switchRole('admin' as Role);  
+  
+  }
 
 
   constructor(
     public authService: AuthService,
+    public sidebarService: SidebarService,
     private router: Router
-  ){}
+  ) {
+    console.log('AuthService user:', authService.user);
 
-  get menuItems(){
-  const userRole = this.authService.user?.role;
-  return this.navItems.filter(
-    x => userRole && x.roles.includes(userRole)
-  );
-}
+  }
 
+
+  get user() {
+  return this.authService.user;
+ }
 
   logout(): void {
 
     this.authService.logout();
 
-    this.router.navigate(
-      ['/login']
-    );
+    this.router.navigate(['/login']);
+
+
 
   }
 
+  switchRole(role: Role): void {
 
-  switchRole(
-    role:Role
-  ): void {
-
-    this.authService.switchRole(
-      role
-    );
+    this.authService.switchRole(role);
 
   }
 
 }
+
+export type ButtonVariant =
+  | 'default'
+  | 'primary'
+  | 'destructive'
+  | 'outline'
+  | 'secondary'
+  | 'ghost'
+  | 'link';

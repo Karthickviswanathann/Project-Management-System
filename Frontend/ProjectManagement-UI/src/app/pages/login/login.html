@@ -2,51 +2,90 @@
 
     <div class="left-panel">
 
-        <h1>Allocate</h1>
+        <div class="brand">
+            Allocate
+        </div>
 
-        <h2>
-            Smart project allocation
-        </h2>
+        <div class="hero-content">
+
+            <h1>
+                Smart project allocation,
+                <br>
+                built for delivery teams.
+            </h1>
+
+            <p>
+                Match the right people to the right projects in seconds.
+                Track workload, deadlines, and risk in one workspace.
+            </p>
+
+            <div class="stats-grid">
+
+                <div class="stat-box">
+                    <h2>1.2k+</h2>
+                    <span>Projects allocated</span>
+                </div>
+
+                <div class="stat-box">
+                    <h2>98%</h2>
+                    <span>On-time delivery</span>
+                </div>
+
+                <div class="stat-box">
+                    <h2>340</h2>
+                    <span>Active resources</span>
+                </div>
+
+                <div class="stat-box">
+                    <h2>24/7</h2>
+                    <span>Real-time insights</span>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 
     <div class="right-panel">
 
-        <h2>Welcome Back</h2>
+        <div class="login-box">
+
+            <h2>Welcome back</h2>
+
+            <p class="subtitle">
+                Sign in as a demo user to explore the workspace.
+            </p>
 
 
-        <div class="role-grid">
+            <div class="role-grid">
 
-            <div
-                *ngFor="let role of roles"
-                class="role-card"
-                [class.active]="selected==role.role"
-                (click)="selectRole(role)">
+                <div *ngFor="let role of roles" class="role-card" [class.active]="selected==role.role"
+                    (click)="selectRole(role)">
 
-                {{role.label}}
+                    {{role.label}}
+
+                </div>
 
             </div>
 
+
+            <label>Email</label>
+
+            <input type="email" [(ngModel)]="email">
+
+
+            <label>Password</label>
+
+            <input type="password" [(ngModel)]="password">
+
+
+            <button (click)="login()">
+                Sign In
+            </button>
+
         </div>
-
-
-        <input
-            type="email"
-            [(ngModel)]="email">
-
-
-        <input
-            type="password"
-            [(ngModel)]="password">
-
-
-        <button
-            (click)="login()">
-
-            Sign In
-
-        </button>
 
     </div>
 

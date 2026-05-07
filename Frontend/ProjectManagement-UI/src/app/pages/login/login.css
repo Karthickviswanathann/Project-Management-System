@@ -1,45 +1,321 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter, Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f8fafc;
+}
+
+
+/* MAIN */
+
 .login-container{
     display:flex;
-    height:100vh;
+    min-height:100vh;
+    width:100%;
 }
+
+
+/* LEFT SIDE */
 
 .left-panel{
     width:50%;
-    padding:40px;
+    position:relative;
+
+    background:linear-gradient(135deg,#1d63e8,#6c63ff);
+
     color:white;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+    padding:48px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    overflow:hidden;
 }
+
+
+/* LOGO */
+
+.brand{
+    font-size:28px;
+    font-weight:700;
+}
+
+
+/* HERO */
+
+.hero-content{
+    max-width:540px;
+}
+
+.hero-content h1{
+    font-size:58px;
+    line-height:1.1;
+    font-weight:700;
+
+    margin-bottom:24px;
+}
+
+.hero-content p{
+    font-size:20px;
+    line-height:1.7;
+    opacity:.9;
+}
+
+
+/* STATS */
+
+.stats-grid{
+    margin-top:60px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.stat-box{
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:18px;
+
+    padding:24px;
+}
+
+.stat-box h2{
+    font-size:38px;
+    margin-bottom:8px;
+}
+
+.stat-box span{
+    font-size:15px;
+    opacity:.9;
+}
+
+
+/* RIGHT SIDE */
 
 .right-panel{
     width:50%;
+
+    background:#f8fafc;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     padding:40px;
 }
+
+
+/* LOGIN CARD */
+
+.login-box{
+    width:100%;
+    max-width:450px;
+}
+
+.login-box h2{
+    font-size:46px;
+    font-weight:700;
+
+    margin-bottom:10px;
+
+    color:#0f172a;
+}
+
+.subtitle{
+    color:#64748b;
+    font-size:17px;
+    line-height:1.5;
+
+    margin-bottom:32px;
+}
+
+
+/* ROLE */
 
 .role-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin:20px 0;
+    gap:14px;
+
+    margin-bottom:28px;
 }
 
 .role-card{
-    border:1px solid #ddd;
-    padding:15px;
+    min-height:78px;
+
+    border:1px solid #dbe2ea;
+
+    border-radius:14px;
+
+    padding:16px;
+
+    display:flex;
+    align-items:center;
+
+    font-size:15px;
+    font-weight:600;
+
     cursor:pointer;
-    border-radius:8px;
+
+    transition:.3s;
+
+    background:white;
+}
+
+.role-card:hover{
+    border-color:#1d63e8;
 }
 
 .role-card.active{
-    border:2px solid blue;
+    border:2px solid #1d63e8;
+    background:#eff6ff;
+}
+
+
+/* FORM */
+
+label{
+    display:block;
+
+    margin-bottom:8px;
+    margin-top:18px;
+
+    font-size:15px;
+    font-weight:600;
+
+    color:#0f172a;
 }
 
 input{
     width:100%;
-    padding:12px;
-    margin-bottom:15px;
+    height:56px;
+
+    border:1px solid #dbe2ea;
+
+    border-radius:12px;
+
+    padding:0 16px;
+
+    font-size:15px;
+
+    outline:none;
+
+    background:white;
 }
+
+input:focus{
+    border-color:#1d63e8;
+}
+
 
 button{
     width:100%;
-    padding:12px;
+    height:56px;
+
+    margin-top:28px;
+
+    border:none;
+    border-radius:12px;
+
+    background:#1366d9;
+
+    color:white;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+    opacity:.95;
+}
+
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:991px){
+
+    .login-container{
+        flex-direction:column;
+    }
+
+    .left-panel{
+        display:none;
+    }
+
+    .right-panel{
+        width:100%;
+        min-height:100vh;
+
+        padding:28px 22px;
+    }
+
+    .login-box{
+        max-width:100%;
+    }
+
+    .login-box h2{
+        font-size:42px;
+    }
+
+    .subtitle{
+        font-size:16px;
+    }
+
+    .role-grid{
+        gap:12px;
+    }
+
+    .role-card{
+        min-height:72px;
+        font-size:14px;
+    }
+
+}
+
+
+@media(max-width:576px){
+
+    .right-panel{
+        align-items:flex-start;
+
+        padding-top:40px;
+    }
+
+    .login-box h2{
+        font-size:34px;
+    }
+
+    .role-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .role-card{
+        min-height:70px;
+
+        padding:12px;
+
+        font-size:13px;
+    }
+
+    input{
+        height:52px;
+    }
+
+    button{
+        height:52px;
+    }
+
 }

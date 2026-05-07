@@ -1,145 +1,126 @@
- <div>
+<div>
 
-      <app-page-header
-        [title]="'Hi ' + firstName + ', here\\'s your day'"
-        description="Tasks, priorities, and what's coming up.">
-      </app-page-header>
+<app-page-header
+  [title]="`Hi ${firstName}, here's your day`"
+  [description]="'Tasks, priorities, and what’s coming up.'">
+</app-page-header>
 
 
+  <!-- stat cards -->
 
-      <!-- stat cards -->
+  <div class="stats-grid">
 
-      <div class="stats-grid">
+    <app-stat-card label="Open Tasks" [value]="open" icon="list-todo" accent="primary">
+    </app-stat-card>
 
-        <app-stat-card
-          label="Open Tasks"
-          [value]="open"
-          icon="list-todo"
-          accent="primary">
-        </app-stat-card>
 
+    <app-stat-card label="In Progress" [value]="inProgress" icon="clock" accent="warning">
+    </app-stat-card>
 
-        <app-stat-card
-          label="In Progress"
-          [value]="inProgress"
-          icon="clock"
-          accent="warning">
-        </app-stat-card>
 
+    <app-stat-card label="Completed" [value]="done" icon="check-circle">
+    </app-stat-card>
 
-        <app-stat-card
-          label="Completed"
-          [value]="done"
-          icon="check-circle">
-        </app-stat-card>
+  </div>
 
-      </div>
 
 
+  <!-- task table -->
 
-      <!-- task table -->
+  <div class="task-container">
 
-      <div class="task-container">
+    <table>
 
-        <table>
+      <thead>
 
-          <thead>
+        <tr>
 
-            <tr>
+          <th>Task</th>
 
-              <th>Task</th>
+          <th>Project</th>
 
-              <th>Project</th>
+          <th>Priority</th>
 
-              <th>Priority</th>
+          <th>Status</th>
 
-              <th>Status</th>
+          <th>Due</th>
 
-              <th>Due</th>
+          <th>Hours</th>
 
-              <th>Hours</th>
+        </tr>
 
-            </tr>
+      </thead>
 
-          </thead>
 
+      <tbody>
 
-          <tbody>
+        <tr *ngFor="let task of sortedTasks">
 
-            <tr *ngFor="let task of sortedTasks">
+          <td>
+            {{task.title}}
+          </td>
 
-              <td>
-                {{task.title}}
-              </td>
 
+          <td>
+            {{task.projectName}}
+          </td>
 
-              <td>
-                {{task.projectName}}
-              </td>
 
+          <td>
 
-              <td>
+            <app-status-badge type="priority" [value]="task.priority">
+            </app-status-badge>
 
-                <app-status-badge
-                  type="priority"
-                  [value]="task.priority">
-                </app-status-badge>
+          </td>
 
-              </td>
 
+          <td>
 
-              <td>
+            <app-status-badge type="task" [value]="task.status">
+            </app-status-badge>
 
-                <app-status-badge
-                  type="task"
-                  [value]="task.status">
-                </app-status-badge>
+          </td>
 
-              </td>
 
+          <td>
 
-              <td>
+            {{task.displayDate}}
 
-                {{task.displayDate}}
+            <br>
 
-                <br>
+            <small [class]="task.dueClass">
 
-                <small
-                  [class]="task.dueClass">
+              {{task.dueText}}
 
-                  {{task.dueText}}
+            </small>
 
-                </small>
+          </td>
 
-              </td>
 
+          <td>
 
-              <td>
+            {{task.estimatedHours}}h
 
-                {{task.estimatedHours}}h
+          </td>
 
-              </td>
+        </tr>
 
-            </tr>
 
 
+        <tr *ngIf="sortedTasks.length===0">
 
-            <tr *ngIf="sortedTasks.length===0">
+          <td colspan="6" class="empty-row">
 
-              <td
-                colspan="6"
-                class="empty-row">
+            No tasks assigned. Enjoy the calm!
 
-                No tasks assigned. Enjoy the calm!
+          </td>
 
-              </td>
+        </tr>
 
-            </tr>
+      </tbody>
 
-          </tbody>
+    </table>
 
-        </table>
+  </div>
 
-      </div>
-
-    </div>
+</div>

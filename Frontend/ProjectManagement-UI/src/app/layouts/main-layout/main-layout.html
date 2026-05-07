@@ -1,89 +1,74 @@
 <div class="layout">
 
-  <aside class="sidebar">
+  <!-- SIDEBAR -->
+  <app-sidebar></app-sidebar>
 
-    <h2 class="logo">
+  <!-- MAIN -->
+  <div class="main" [class.collapsed]="!sidebarService.isOpen">
 
-      Allocate
-
-    </h2>
-
-
-    <a
-      *ngFor="let item of menuItems"
-      [routerLink]="item.route"
-      routerLinkActive="active">
-
-      {{item.label}}
-
-    </a>
-
-
-    <div class="role-box">
-
-      {{authService.user?.role}}
-
-    </div>
-
-  </aside>
-
-
-  <div class="main">
-
+    <!-- TOPBAR -->
     <header class="topbar">
 
-      <div>
+      <!-- LEFT -->
+      <div class="top-left">
 
-        {{authService.user?.name}}
+        <!-- MENU -->
+        <!-- <button class="menu-btn" (click)="sidebarService.toggle()">
+          ☰
+        </button> -->
+
+        <!-- SEARCH -->
+        <div class="search-wrapper">
+          <span class="search-icon">⌕</span>
+
+          <input
+            type="text"
+            placeholder="Search projects, tasks, people..."
+          />
+        </div>
 
       </div>
 
+      <!-- RIGHT -->
+      <div class="top-right">
 
-      <div>
-
-        <select
-          [value]="authService.user?.role"
-          (change)="switchRole($any($event.target).value)">
-
-          <option value="admin">
-            Admin
-          </option>
-
-          <option value="tl">
-            Team Lead
-          </option>
-
-          <option value="developer">
-            Developer
-          </option>
-
-          <option value="tester">
-            Tester
-          </option>
-
-        </select>
-
-
-        <button
-          (click)="logout()">
-
-          Logout
-
+        <!-- NOTIFICATION -->
+        <button class="icon-btn">
+          🔔
         </button>
+
+        <!-- USER -->
+        <div class="user-profile">
+
+          <!-- LOGO -->
+          <div class="avatar">
+            SC
+          </div>
+
+          <!-- USER INFO -->
+          <div class="user-info">
+
+            <span class="name">
+              {{user?.name}}
+            </span>
+
+            <span class="role">
+              {{user?.role }}
+            </span>
+
+          </div>
+
+        </div>
 
       </div>
 
     </header>
 
-
-
-    <main>
-
-      <router-outlet>
-      </router-outlet>
-
+    <!-- CONTENT -->
+    <main class="content">
+      <!-- Charts will come from another component -->
+      <router-outlet></router-outlet>
     </main>
-
 
   </div>
 

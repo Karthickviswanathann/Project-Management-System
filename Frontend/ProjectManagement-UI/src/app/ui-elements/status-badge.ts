@@ -1,159 +1,130 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule} from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+type BadgeType = 'priority' | 'project' | 'task' | 'test';
 
 @Component({
   selector: 'app-status-badge',
-
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   template: `
-
-    <span
-      class="badge"
-      [ngClass]="getBadgeClass()">
-
-      {{ getLabel() }}
-
-    </span>
-
+<span class="badge" [ngClass]="computedClass">
+  {{ label }}
+</span>
   `,
-
   styles: [`
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  text-transform: capitalize;
+}
 
-    .badge{
+/* PRIORITY */
+.priority-high {
+  background: rgba(239,68,68,0.1);
+  color: #ef4444;
+  border-color: rgba(239,68,68,0.2);
+}
 
-      display:inline-flex;
+.priority-medium {
+  background: rgba(245,158,11,0.15);
+  color: #b45309;
+  border-color: rgba(245,158,11,0.3);
+}
 
-      align-items:center;
+.priority-low {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.2);
+}
 
-      padding:2px 8px;
+/* PROJECT */
+.project-planning {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: #e5e7eb;
+}
 
-      border-radius:6px;
+.project-active {
+  background: rgba(59,130,246,0.1);
+  color: #3b82f6;
+  border-color: rgba(59,130,246,0.2);
+}
 
-      border:1px solid;
+.project-on-hold {
+  background: rgba(245,158,11,0.15);
+  color: #b45309;
+  border-color: rgba(245,158,11,0.3);
+}
 
-      font-size:12px;
+.project-completed {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.2);
+}
 
-      font-weight:500;
+/* TASK */
+.task-todo {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: #e5e7eb;
+}
 
-      text-transform:capitalize;
+.task-in-progress {
+  background: rgba(59,130,246,0.1);
+  color: #3b82f6;
+  border-color: rgba(59,130,246,0.2);
+}
 
-    }
+.task-review {
+  background: rgba(99,102,241,0.15);
+  color: #4f46e5;
+  border-color: #6366f1;
+}
 
+.task-done {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.2);
+}
 
-    /* priority */
+/* TEST */
+.test-pending {
+  background: rgba(245,158,11,0.15);
+  color: #b45309;
+  border-color: rgba(245,158,11,0.3);
+}
 
-    .high{
-      background:#fef2f2;
-      color:#dc2626;
-      border-color:#fecaca;
-    }
+.test-passed {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+  border-color: rgba(34,197,94,0.2);
+}
 
-    .medium{
-      background:#fffbeb;
-      color:#d97706;
-      border-color:#fde68a;
-    }
-
-    .low{
-      background:#f0fdf4;
-      color:#16a34a;
-      border-color:#bbf7d0;
-    }
-
-
-    /* project */
-
-    .planning{
-      background:#f3f4f6;
-      color:#6b7280;
-      border-color:#d1d5db;
-    }
-
-    .active{
-      background:#eff6ff;
-      color:#2563eb;
-      border-color:#bfdbfe;
-    }
-
-    .on-hold{
-      background:#fffbeb;
-      color:#d97706;
-      border-color:#fde68a;
-    }
-
-    .completed{
-      background:#f0fdf4;
-      color:#16a34a;
-      border-color:#bbf7d0;
-    }
-
-
-    /* task */
-
-    .todo{
-      background:#f3f4f6;
-      color:#6b7280;
-      border-color:#d1d5db;
-    }
-
-    .in-progress{
-      background:#eff6ff;
-      color:#2563eb;
-      border-color:#bfdbfe;
-    }
-
-    .review{
-      background:#f5f3ff;
-      color:#7c3aed;
-      border-color:#ddd6fe;
-    }
-
-    .done{
-      background:#f0fdf4;
-      color:#16a34a;
-      border-color:#bbf7d0;
-    }
-
-
-    /* test */
-
-    .pending{
-      background:#fffbeb;
-      color:#d97706;
-      border-color:#fde68a;
-    }
-
-    .passed{
-      background:#f0fdf4;
-      color:#16a34a;
-      border-color:#bbf7d0;
-    }
-
-    .failed{
-      background:#fef2f2;
-      color:#dc2626;
-      border-color:#fecaca;
-    }
-
+.test-failed {
+  background: rgba(239,68,68,0.1);
+  color: #ef4444;
+  border-color: rgba(239,68,68,0.2);
+}
   `]
-
 })
 export class StatusBadgeComponent {
 
-  @Input() type!: string;
+  @Input() type: BadgeType = 'task';
+  @Input() value: string = '';
 
-  @Input() value!: string;
-
-
-  getBadgeClass(): string {
-
-    return this.value;
-
+  get label(): string {
+    return this.value?.replace('-', ' ');
   }
 
-
-  getLabel(): string {
-
-    return this.value.replace('-', ' ');
-
+  get computedClass(): string {
+    const key = `${this.type}-${this.value}`;
+    return key;
   }
-
 }

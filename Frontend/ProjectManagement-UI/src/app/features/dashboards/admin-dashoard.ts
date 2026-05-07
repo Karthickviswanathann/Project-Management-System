@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { PROJECTS, EMPLOYEES } from './../../shared/mockData/mock-data';
+import { PageHeaderComponent } from '../../ui-elements/page-header';
+import { StatCardComponent } from '../../ui-elements/stat-card';
+import { StatusBadgeComponent } from '../../ui-elements/status-badge';
 @Component({
-  selector: 'app-admin-dashoard',
-  imports: [],
+  selector: 'app-admin-dashboard',
+  imports: [PageHeaderComponent, StatCardComponent,StatusBadgeComponent, CommonModule ],
+  standalone: true,
   templateUrl: './admin-dashoard.html',
-  styleUrl: './admin-dashoard.css',
+  styleUrls: ['./admin-dashoard.css']
+
 })
 export class AdminDashoard implements OnInit{
  totalProjects = 0;

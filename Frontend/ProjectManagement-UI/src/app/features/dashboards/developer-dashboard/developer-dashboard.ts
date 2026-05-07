@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { EMPLOYEES, TASKS } from '../../../shared/mockData/mock-data';
 import { AuthService } from '../../../Core/services/auth.service';
+import { StatCardComponent } from '../../../ui-elements/stat-card';
+import { PageHeaderComponent } from '../../../ui-elements/page-header';
+import { StatusBadgeComponent } from '../../../ui-elements/status-badge';
 
 @Component({
   selector: 'app-developer-dashboard',
-  imports: [],
+  imports: [StatCardComponent,PageHeaderComponent,StatusBadgeComponent],
+  standalone: true,
   templateUrl: './developer-dashboard.html',
   styleUrl: './developer-dashboard.css',
 })
 export class DeveloperDashboard implements OnInit{
  user: any;
+  
+   firstName:any;
 
   empId = '';
 
@@ -51,7 +57,7 @@ export class DeveloperDashboard implements OnInit{
         x => x.name === this.user?.name
       );
 
-
+ 
     this.empId =
       match?.id || 'e1';
 

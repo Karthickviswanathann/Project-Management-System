@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-project-details',
+  standalone: true,
   imports: [],
   templateUrl: './project-details.html',
-  styleUrl: './project-details.css',
+  styleUrls: ['./project-details.css'],
 })
 export class ProjectDetails {
 

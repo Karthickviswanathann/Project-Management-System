@@ -1,8 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-project',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './add-project.html',
   styleUrl: './add-project.css',
 })

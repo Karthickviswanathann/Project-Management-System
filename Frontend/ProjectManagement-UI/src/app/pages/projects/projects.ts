@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { PROJECTS } from '../../shared/mockData/mock-data';
+import { AddProject } from './add-project/add-project';
+import { ProjectDetails } from './project-details/project-details';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [AddProject, ProjectDetails],
   templateUrl: './projects.html',
-  styleUrl: './projects.css',
+  styleUrls: ['./projects.css'],
 })
 export class Projects {
 

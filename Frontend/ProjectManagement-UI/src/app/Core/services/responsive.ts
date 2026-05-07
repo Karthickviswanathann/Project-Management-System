@@ -1,4 +1,9 @@
-import { Injectable, HostListener } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import {
+  Injectable,
+  Inject,
+  PLATFORM_ID
+} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -6,26 +11,50 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DeviceService {
 
-  private MOBILE_BREAKPOINT = 768;
+ private MOBILE_BREAKPOINT = 768;
 
-  private mobileSubject = new BehaviorSubject<boolean>(
-    window.innerWidth < this.MOBILE_BREAKPOINT
-  );
+  private mobileSubject =
+    new BehaviorSubject<boolean>(false);
 
-  isMobile$ = this.mobileSubject.asObservable();
+  isMobile$ =
+    this.mobileSubject.asObservable();
 
-  constructor() {
+
+  constructor(
+    @Inject(PLATFORM_ID)
+    private platformId: Object
+  ) {
+
     this.checkScreen();
+
+    if (isPlatformBrowser(this.platformId)) {
+
+      window.addEventListener(
+        'resize',
+        () => this.checkScreen()
+      );
+
+    }
+
   }
 
-  @HostListener('window:resize')
-  checkScreen() {
-    this.mobileSubject.next(
-      window.innerWidth < this.MOBILE_BREAKPOINT
-    );
+
+  checkScreen(): void {
+
+    if (isPlatformBrowser(this.platformId)) {
+
+      this.mobileSubject.next(
+        window.innerWidth < this.MOBILE_BREAKPOINT
+      );
+
+    }
+
   }
+
 
   get isMobile(): boolean {
+
     return this.mobileSubject.value;
+
   }
 }

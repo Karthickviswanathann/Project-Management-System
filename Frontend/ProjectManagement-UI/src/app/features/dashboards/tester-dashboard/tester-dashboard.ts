@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { BUGS, TASKS } from '../../../shared/mockData/mock-data';
+import { StatusBadgeComponent } from '../../../ui-elements/status-badge';
+import { StatCardComponent } from '../../../ui-elements/stat-card';
+import { PageHeaderComponent } from '../../../ui-elements/page-header';
 
 @Component({
   selector: 'app-tester-dashboard',
-  imports: [],
+  imports: [StatusBadgeComponent,StatCardComponent,PageHeaderComponent],
+  standalone: true,
   templateUrl: './tester-dashboard.html',
   styleUrl: './tester-dashboard.css',
 })

@@ -1,145 +1,133 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule} from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-stat-card',
-
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   template: `
-  
-    <div class="stat-card">
+<div class="card">
 
-      <div class="card-content">
+  <div class="content">
 
-        <div>
+    <!-- Left side -->
+    <div>
 
-          <p class="card-label">
-            {{label}}
-          </p>
+      <p class="label">{{ label }}</p>
 
-          <p class="card-value">
-            {{value}}
-          </p>
+      <p class="value">{{ value }}</p>
 
-          <p
-            *ngIf="trend"
-            class="card-trend"
-            [class.positive]="trendPositive"
-            [class.negative]="!trendPositive">
-
-            {{trend}}
-
-          </p>
-
-        </div>
-
-
-        <div
-          class="icon-container"
-          [ngClass]="accent">
-
-          <i-lucide
-            [name]="icon">
-          </i-lucide>
-
-        </div>
-
-      </div>
+      <p
+        *ngIf="trend"
+        class="trend"
+        [ngClass]="trendPositive ? 'trend-positive' : 'trend-negative'"
+      >
+        {{ trend }}
+      </p>
 
     </div>
 
+    <!-- Icon -->
+    <div class="icon" [ngClass]="accentClass">
+      <i class="{{ icon }}"></i>
+    </div>
+
+  </div>
+
+</div>
   `,
-
-
   styles: [`
+.card {
+  border: 1px solid #e5e7eb;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.05));
+  transition: 0.2s;
+}
 
-    .stat-card{
-      border:1px solid #e5e7eb;
-      border-radius:12px;
-      padding:20px;
-      background:white;
-      transition:.3s;
-    }
+.card:hover {
+  box-shadow: var(--shadow-elevated, 0 6px 20px rgba(0,0,0,0.12));
+}
 
-    .stat-card:hover{
-      box-shadow:0 8px 20px rgba(0,0,0,.08);
-    }
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
-    .card-content{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-    }
+/* text */
+.label {
+  font-size: 13px;
+  color: #6b7280;
+  font-weight: 500;
+}
 
-    .card-label{
-      font-size:14px;
-      color:#6b7280;
-      margin:0;
-    }
+.value {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 8px;
+  color: #111827;
+}
 
-    .card-value{
-      font-size:32px;
-      font-weight:600;
-      margin-top:8px;
-    }
+/* trend */
+.trend {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
 
-    .card-trend{
-      margin-top:6px;
-      font-size:12px;
-      font-weight:500;
-    }
+.trend-positive {
+  color: #22c55e;
+}
 
-    .positive{
-      color:green;
-    }
+.trend-negative {
+  color: #ef4444;
+}
 
-    .negative{
-      color:red;
-    }
+/* icon box */
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .icon-container{
-      width:40px;
-      height:40px;
-      border-radius:10px;
+/* accents (same as React map) */
+.primary {
+  background: rgba(59,130,246,0.1);
+  color: #3b82f6;
+}
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+.success {
+  background: rgba(34,197,94,0.1);
+  color: #22c55e;
+}
 
-    .primary{
-      background:#eff6ff;
-      color:#2563eb;
-    }
+.warning {
+  background: rgba(245,158,11,0.15);
+  color: #b45309;
+}
 
-    .success{
-      background:#f0fdf4;
-      color:#16a34a;
-    }
-
-    .warning{
-      background:#fffbeb;
-      color:#d97706;
-    }
-
-    .destructive{
-      background:#fef2f2;
-      color:#dc2626;
-    }
-
+.destructive {
+  background: rgba(239,68,68,0.1);
+  color: #ef4444;
+}
   `]
-
 })
 export class StatCardComponent {
 
-  @Input() label!: string;
-
-  @Input() value!: string | number;
-
-  @Input() icon!: string;
-
+  @Input() label: string = '';
+  @Input() value: string | number = '';
+  @Input() icon: string = ''; // Lucide icon class or font icon
   @Input() trend?: string;
+  @Input() trendPositive: boolean = false;
+  @Input() accent: 'primary' | 'success' | 'warning' | 'destructive' = 'primary';
 
-  @Input() trendPositive = false;
-
-  @Input() accent = 'primary';
-
+  get accentClass() {
+    return this.accent;
+  }
 }

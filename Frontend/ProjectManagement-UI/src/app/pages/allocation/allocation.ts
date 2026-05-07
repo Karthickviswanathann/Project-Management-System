@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { EMPLOYEES, PROJECTS } from '../../shared/mockData/mock-data';
-
+import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-allocation',
-  imports: [],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './allocation.html',
   styleUrl: './allocation.css',
 })

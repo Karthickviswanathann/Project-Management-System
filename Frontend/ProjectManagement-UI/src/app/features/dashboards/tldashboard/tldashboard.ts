@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { EMPLOYEES, PROJECTS, TASKS } from '../../../shared/mockData/mock-data';
+import { PageHeaderComponent } from '../../../ui-elements/page-header';
 
 @Component({
-  selector: 'app-tldashboard',
-  imports: [],
+  selector: 'app-tl-dashboard',
+  standalone: true,
+  imports: [PageHeaderComponent],
   templateUrl: './tldashboard.html',
-  styleUrl: './tldashboard.css',
+  styleUrls: ['./tldashboard.css'],
 })
 
 export class TLDashboard
