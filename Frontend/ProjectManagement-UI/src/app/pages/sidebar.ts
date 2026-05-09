@@ -29,14 +29,14 @@ import { AuthService } from '../Core/services/auth.service';
 
     <div class="logo">
 
-     <button class="material-icons" >auto_awesome</button> <span>Allocate</span>
+     <button class="material-icons" style="position: relative;">explore</button> <span style="position: absolute;top: 25px;left: 60px;">WorkPilot</span>
       
     </div>
 
    
 
   </div>
-
+ 
 
   <!-- MENU -->
 
@@ -64,6 +64,13 @@ import { AuthService } from '../Core/services/auth.service';
 
 </div>`,
   styles: [`
+    body{
+     font-size:14px;
+    }
+     .material-icons{ 
+    font-family:'Material Icons' !important; 
+}
+
   .sidebar{
 
   width:260px;
@@ -110,7 +117,7 @@ import { AuthService } from '../Core/services/auth.service';
 /* LOGO */
 
 .logo{
-  font-size:20px;
+  font-size:16px;
   font-weight:700;
   white-space:nowrap;
 }
@@ -150,12 +157,12 @@ import { AuthService } from '../Core/services/auth.service';
 
 .menu a{
 
-  height:46px;
+  height:40px;
 
   display:flex;
   align-items:center;
 
-  padding:0 14px;
+  padding:2px 14px;
 
   border-radius:10px;
   color:black;
@@ -172,9 +179,20 @@ import { AuthService } from '../Core/services/auth.service';
 
 .menu a:hover,
 .menu a.active{
-
   background:#1e293b;
   color:white;
+}
+
+
+.menu a .icon {
+  margin-right: 8px;
+  transition: 0.2s;
+  font-size: 14px;
+}
+
+.menu a:hover .icon,
+.menu a.active .icon {
+  color: #1e293b;
 }
 
 .menu-item {
@@ -201,6 +219,7 @@ import { AuthService } from '../Core/services/auth.service';
 .material-icons{
    background-color: white;
     padding: 5px;
+    border: 1px solid #e5e7eb;
     border-radius: 10px;
 }
 

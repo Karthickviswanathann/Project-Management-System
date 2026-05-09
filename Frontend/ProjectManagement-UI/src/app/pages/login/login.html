@@ -2,42 +2,57 @@
 
     <div class="left-panel">
 
-        <div class="brand">
-            Allocate
+        <div class="sidebar-header">
+
+            <div class="logo">
+
+                <span class="material-icons logo-icon">
+                    explore
+                </span>
+
+                <span class="logo-text">
+                    WorkPilot
+                </span>
+
+            </div>
+
         </div>
+
+
 
         <div class="hero-content">
 
-            <h1>
+            <h3>
                 Smart project allocation,
                 <br>
                 built for delivery teams.
-            </h1>
+            </h3>
 
             <p>
                 Match the right people to the right projects in seconds.
+                <br>
                 Track workload, deadlines, and risk in one workspace.
             </p>
 
             <div class="stats-grid">
 
                 <div class="stat-box">
-                    <h2>1.2k+</h2>
+                    <p>1.2k+</p>
                     <span>Projects allocated</span>
                 </div>
 
                 <div class="stat-box">
-                    <h2>98%</h2>
+                    <p>98%</p>
                     <span>On-time delivery</span>
                 </div>
 
                 <div class="stat-box">
-                    <h2>340</h2>
+                    <p>340</p>
                     <span>Active resources</span>
                 </div>
 
                 <div class="stat-box">
-                    <h2>24/7</h2>
+                    <p>24/7</p>
                     <span>Real-time insights</span>
                 </div>
 
@@ -61,10 +76,12 @@
 
             <div class="role-grid">
 
-                <div *ngFor="let role of roles" class="role-card" [class.active]="selected==role.role"
+                <div *ngFor="let role of roles" class="role-card" [class.active]="selected == role.role"
                     (click)="selectRole(role)">
 
-                    {{role.label}}
+                    <i class="fa-solid" [ngClass]="role.icon" style="color: rgb(29, 77, 211);"></i>
+
+                    <span>{{ role.label }}</span>
 
                 </div>
 

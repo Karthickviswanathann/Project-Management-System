@@ -30,14 +30,23 @@ import { FormsModule } from '@angular/forms';
 
     <!-- Icon -->
     <div class="icon" [ngClass]="accentClass">
-      <i class="{{ icon }}"></i>
+     <span class="material-icons">
+        {{ icon }}
+      </span>
+
     </div>
 
+    
   </div>
 
 </div>
   `,
   styles: [`
+
+    
+.material-icons{ 
+    font-family:'Material Icons' !important; 
+}
 .card {
   border: 1px solid #e5e7eb;
   background: white;
@@ -46,6 +55,7 @@ import { FormsModule } from '@angular/forms';
   box-shadow: var(--shadow-card, 0 2px 10px rgba(0,0,0,0.05));
   transition: 0.2s;
 }
+
 
 .card:hover {
   box-shadow: var(--shadow-elevated, 0 6px 20px rgba(0,0,0,0.12));
@@ -66,7 +76,7 @@ import { FormsModule } from '@angular/forms';
 
 .value {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 500;
   margin-top: 8px;
   color: #111827;
 }

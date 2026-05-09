@@ -19,12 +19,9 @@
 
         <!-- SEARCH -->
         <div class="search-wrapper">
-          <span class="search-icon">⌕</span>
+          <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
 
-          <input
-            type="text"
-            placeholder="Search projects, tasks, people..."
-          />
+          <input type="text" placeholder="Search projects, tasks, people..." />
         </div>
 
       </div>
@@ -37,24 +34,69 @@
           🔔
         </button>
 
-        <!-- USER -->
-        <div class="user-profile">
 
-          <!-- LOGO -->
-          <div class="avatar">
-            SC
+
+        <div class="profile-wrapper">
+          <div class="user-profile" (click)="toggleDropdown()">
+
+            <div class="avatar">
+              {{ getInitials(user?.name) }} </div>
+
+            <div class="user-info">
+
+              <span class="name">
+                {{ user?.name }}
+              </span>
+
+              <span class="role">
+                {{ user?.role }}
+              </span>
+
+            </div>
+
+            <!-- Dynamic Arrow -->
+            <!-- <i class="fa-solid arrow" [ngClass]="showDropdown ? 'fa-chevron-up' : 'fa-chevron-down'">
+            </i> -->
+
+            <span class="material-icons">
+              {{ showDropdown ? 'expand_less' : 'expand_more' }}
+            </span>
+
           </div>
 
-          <!-- USER INFO -->
-          <div class="user-info">
 
-            <span class="name">
-              {{user?.name}}
-            </span>
+          <div class="profile-dropdown" *ngIf="showDropdown">
 
-            <span class="role">
-              {{user?.role }}
-            </span>
+            <!-- TOP -->
+            <div class="dropdown-header">
+
+
+
+              <div>
+
+                <div class="dropdown-name">
+                  {{ user?.name }}
+                </div>
+
+                <div class="dropdown-email">
+                  {{ user?.email }}
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- DIVIDER -->
+            <div class="divider"></div>
+
+            <!-- LOGOUT -->
+            <button class="logout-btn" (click)="logout()">
+
+              <i class="fa-solid fa-right-from-bracket"></i>
+
+              Logout
+ 
+            </button>
 
           </div>
 

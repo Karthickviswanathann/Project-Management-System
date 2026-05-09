@@ -1,28 +1,132 @@
-<div>
+<div class="project-modal">
 
-    <h2>
-        {{project.name}}
-    </h2>
+  <!-- Header -->
+  <div class="modal-header">
 
+    <div>
+      <div class="title-row">
+        <h2>{{ project.name }}</h2>
 
-    <p>
-        {{project.description}}
-    </p>
+        <span class="status-badge active">
+          Active
+        </span>
 
+        <span class="priority-badge high">
+          High
+        </span>
+      </div>
+
+      <p class="description">
+        {{ project.description }}
+      </p>
+    </div>
+
+    <button class="close-btn" (click)="closeDetails()">
+      ✕
+    </button>
+
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-grid">
+
+    <div class="stat-box">
+      <span class="label">Deadline</span>
+      <h4>Jun 15, 2026</h4>
+    </div>
+
+    <div class="stat-box">
+      <span class="label">Estimated</span>
+      <h4>1200h</h4>
+    </div>
+
+    <div class="stat-box">
+      <span class="label">Progress</span>
+      <h4>68%</h4>
+    </div>
+
+    <div class="stat-box">
+      <span class="label">Team need</span>
+      <h4>0 dev · 0 QA</h4>
+    </div>
+
+  </div>
+
+  <!-- Skills -->
+  <div class="section">
+
+    <h5>REQUIRED SKILLS</h5>
+
+    <div class="skills">
+
+      <span>React</span>
+      <span>Node.js</span>
+      <span>PostgreSQL</span>
+
+    </div>
+
+  </div>
+
+  <!-- Actions -->
+  <div class="action-buttons">
 
     <button
+      class="allocate-btn"
       (click)="autoAllocate()">
 
-      Auto Allocate
+      Open Smart Allocation →
 
     </button>
-
 
     <button
+      class="suggest-btn"
       (click)="confirmAllocation()">
 
-      Confirm
+      Re-suggest
 
     </button>
+
+  </div>
+
+  <!-- Team Table -->
+  <div class="team-section">
+
+    <h5>ASSIGNED TEAM</h5>
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>Member</th>
+          <th>Role</th>
+          <th>Allocated hours</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>Priya Patel</td>
+          <td>Developer</td>
+          <td>120h</td>
+        </tr>
+
+        <tr>
+          <td>Mei Tanaka</td>
+          <td>Developer</td>
+          <td>100h</td>
+        </tr>
+
+        <tr>
+          <td>Jordan Kim</td>
+          <td>Tester</td>
+          <td>60h</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
 
 </div>

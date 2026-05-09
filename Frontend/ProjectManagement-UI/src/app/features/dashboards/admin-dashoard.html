@@ -1,71 +1,138 @@
-<div>
+<div class="dashboard">
 
-  <app-page-header
-    [title]="'Delivery Overview'"
-    [description]="'Real-time visibility across projects and resources.'">
+  <!-- HEADER -->
+  <app-page-header [title]="'Delivery Overview'" [description]="'Real-time visibility across projects and resources.'">
   </app-page-header>
 
+  <!-- STATS -->
   <div class="stats-grid">
-
-    <app-stat-card
-      label="Total Projects"
-      [value]="totalProjects">
+    <app-stat-card label="Total Projects" [value]="totalProjects" icon="folder" accent="primary">
     </app-stat-card>
 
-    <app-stat-card
-      label="Active Projects"
-      [value]="activeProjects">
+    <app-stat-card label="Active Projects" [value]="activeProjects" icon="trending_up" accent="primary">
     </app-stat-card>
 
-    <app-stat-card
-      label="Resource Utilization"
-      [value]="avgUtil + '%'">
+    <app-stat-card label="Resource Utilization" [value]="avgUtil + '%'" icon="analytics" accent="warning">
     </app-stat-card>
 
-    <app-stat-card
-      label="Available Employees"
-      [value]="available">
+    <app-stat-card label="Available Employees" [value]="available" icon="groups" accent="success">
     </app-stat-card>
 
   </div>
 
 
-  <!-- Table -->
 
-  <table>
 
-    <thead>
-      <tr>
-        <th>Employee</th>
-        <th>Role</th>
-        <th>Utilization</th>
-        <th>Availability</th>
-        <th>Status</th>
-      </tr>
-    </thead>
+  <!-- CHART SECTION -->
 
-    <tbody>
+  <div class="chart-grid">
 
-      <tr *ngFor="let e of overloaded">
+    <!-- DONUT -->
 
-        <td>{{e.name}}</td>
+    <div class="dashboard-card">
 
-        <td>{{e.role}}</td>
+      <div class="card-header">
 
-        <td>{{e.utilization}}%</td>
+        <h3>Project Status</h3>
 
-        <td>{{e.availability}}%</td>
+        <p>Distribution by current state</p>
 
-        <td>
-          <app-status-badge
-            value="high">
-          </app-status-badge>
-        </td>
+      </div>
 
-      </tr>
+      <div class="chart-container">
 
-    </tbody>
+        <canvas baseChart [data]="doughnutChartData" [options]="doughnutChartOptions" [type]="doughnutChartType">
+        </canvas>
 
-  </table>
+      </div>
+
+    </div>
+
+    <!-- BAR -->
+
+    <div class="dashboard-card">
+
+      <div class="card-header">
+
+        <h3>Resource Utilization</h3>
+
+        <p>Top 8 by current load</p>
+
+      </div>
+
+      <div class="bar-chart-container">
+
+        <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType">
+        </canvas>
+
+      </div>
+
+    </div>
+
+  </div>
+  <!-- TABLE -->
+  <div class="dashboard-card table-card">
+
+    <div class="table-header">
+
+      <h3>Overloaded Employees</h3>
+
+      <span class="flagged">
+        3 flagged
+      </span>
+
+    </div>
+
+    <table class="custom-table">
+
+      <thead>
+
+        <tr>
+          <th>Employee</th>
+          <th>Role</th>
+          <th>Utilization</th>
+          <th>Availability</th>
+          <th>Status</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let e of overloaded">
+
+          <td>{{e.name}}</td>
+
+          <td>{{e.role}}</td>
+
+          <td>
+
+            <div class="progress-wrapper">
+
+              <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="e.utilization">
+                </div>
+              </div>
+
+              <span>{{e.utilization}}%</span>
+
+            </div>
+
+          </td>
+
+          <td>{{e.availability}}%</td>
+
+          <td>
+            <app-status-badge type="priority" value="high">
+            </app-status-badge>
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
 
 </div>

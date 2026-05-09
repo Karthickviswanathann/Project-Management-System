@@ -25,6 +25,11 @@ export class ProjectDetails {
     alert("Allocation confirmed");
 
   }
+  closeDetails(){
+
+    this.project=null;
+
+  }
 
 
 }

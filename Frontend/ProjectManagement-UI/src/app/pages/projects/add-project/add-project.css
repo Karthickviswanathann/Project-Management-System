@@ -1,0 +1,217 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 999;
+}
+
+/* MODAL */
+
+.create-modal {
+  width: 50% ;
+
+  background: #ffffff;
+
+  border-radius: 14px;
+
+  padding: 24px;
+
+  position: relative;
+
+  max-height: 95vh;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* CLOSE BUTTON */
+
+.close-btn {
+  position: absolute;
+
+  top: 16px;
+  right: 16px;
+
+  width: 28px;
+  height: 28px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  font-size: 18px;
+
+  cursor: pointer;
+}
+
+/* HEADER */
+
+h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.subtitle {
+  margin-top: 6px;
+  margin-bottom: 16px !important;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #6b7280;
+}
+
+/* FORM */
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #111827;
+}
+
+/* INPUTS */
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  padding: 8px 14px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+
+  font-size: 14px;
+
+  background: white;
+
+  outline: none;
+
+  box-sizing: border-box;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12);
+
+}
+
+textarea {
+  resize: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #1e293b;
+}
+
+/* GRID */
+
+.grid-3 {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 16px;
+}
+
+.grid-2 {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 16px;
+}
+
+/* SKILLS */
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  padding: 12px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.skill {
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  border: 1px solid #d1d5db;
+
+  background: #f9fafb;
+
+  font-size: 13px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.skill:hover {
+  background: #a4aab4;
+  border-color: #1e293b;
+  color: #1e293b;
+}
+
+/* BUTTON */
+
+.btn-row {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 24px;
+}
+
+.create-btn {
+  border: none;
+
+  background: #1e293b;
+  color: white;
+
+  padding: 10px 20px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.create-btn:hover {
+  background: #9faabb;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+  .create-modal {
+    width: 95%;
+  }
+
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

@@ -61,9 +61,9 @@ import { CommonModule } from '@angular/common';
 
       margin:0;
 
-      font-size:32px;
+      font-size:22px;
 
-      font-weight:600;
+      font-weight:500;
 
       letter-spacing:-0.5px;
 
@@ -74,11 +74,11 @@ import { CommonModule } from '@angular/common';
 
     .page-description{
 
-      margin-top:4px;
+      margin-top:10px;
 
       margin-bottom:0;
 
-      font-size:14px;
+      font-size:12px;
 
       color:#6b7280;
 

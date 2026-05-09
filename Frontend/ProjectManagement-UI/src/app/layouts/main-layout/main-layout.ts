@@ -26,6 +26,8 @@ import {InputComponent} from "../../ui-elements/input";
 
 export class MainLayout implements OnInit {
 
+  showDropdown = false;
+
    ngOnInit(): void {
     console.log('MainLayout initialized. Current user:', this.authService.user);
 
@@ -34,6 +36,9 @@ export class MainLayout implements OnInit {
   }
 
 
+toggleDropdown() {
+  this.showDropdown = !this.showDropdown;
+}
   constructor(
     public authService: AuthService,
     public sidebarService: SidebarService,
@@ -43,6 +48,18 @@ export class MainLayout implements OnInit {
 
   }
 
+
+  getInitials(name: string | undefined): string {
+
+  if (!name) return '';
+
+  return name
+    .split(' ')
+    .map(word => word.charAt(0))
+    .join('')
+    .toUpperCase();
+
+}
 
   get user() {
   return this.authService.user;
