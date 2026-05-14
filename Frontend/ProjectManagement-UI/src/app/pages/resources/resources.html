@@ -1,1 +1,276 @@
-<p>resources works!</p>
+<div class="resources-page">
+
+  <!-- HEADER -->
+  <div class="page-header">
+
+    <div>
+      <h1>Resources</h1>
+
+      <p>
+        Manage employees, skills, and availability.
+      </p>
+    </div>
+
+    <button class="add-btn" (click)="openAddModal()">
+      <i class="fa-solid fa-plus"></i>
+      Add Employee
+    </button>
+
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+      type="text"
+      placeholder="Search by name or skill"
+      [(ngModel)]="search"
+    >
+
+  </div>
+
+  <!-- TABLE -->
+  <div class="table-card">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>Name</th>
+          <th>Role</th>
+          <th>Skills</th>
+          <th>Utilization</th>
+          <th>Availability</th>
+          <th></th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let emp of filteredEmployees">
+
+          <!-- NAME -->
+          <td>
+
+            <div class="user-cell">
+
+              <div class="avatar">
+                {{ getInitials(emp.name) }}
+              </div>
+
+              <div>
+
+                <div class="name">
+                  {{ emp.name }}
+                </div>
+
+                <div class="email">
+                  {{ emp.email }}
+                </div>
+
+              </div>
+
+            </div>
+
+          </td>
+
+          <!-- ROLE -->
+          <td class="role">
+            {{ emp.role }}
+          </td>
+
+          <!-- SKILLS -->
+          <td>
+
+            <div class="skills">
+
+              <span *ngFor="let skill of emp.skills.slice(0,3)">
+                {{ skill }}
+              </span>
+
+              <small *ngIf="emp.skills.length > 3">
+                +{{ emp.skills.length - 3 }}
+              </small>
+
+            </div>
+
+          </td>
+
+          <!-- UTILIZATION -->
+          <td>
+
+            <div class="utilization">
+
+              <div class="progress">
+
+                <div
+                  class="progress-fill"
+                  [style.width.%]="emp.utilization"
+                ></div>
+
+              </div>
+
+              <span
+                [class.red]="emp.utilization >= 85"
+                [class.orange]="emp.utilization >= 60 && emp.utilization < 85"
+                [class.green]="emp.utilization < 60"
+              >
+                {{ emp.utilization }}%
+              </span>
+
+            </div>
+
+          </td>
+
+          <!-- AVAILABILITY -->
+          <td>
+            {{ emp.availability }}%
+          </td>
+
+          <!-- ACTION -->
+          <td>
+
+            <button
+              class="edit-btn"
+              (click)="openEditModal(emp)"
+            >
+              <i class="fa-solid fa-pen"></i>
+            </button>
+
+          </td>
+
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>
+
+
+<!-- MODAL -->
+<div class="modal-backdrop" *ngIf="showModal">
+
+  <div class="employee-modal">
+
+    <!-- HEADER -->
+    <div class="modal-header">
+
+      <h2>
+        {{ editingEmployee ? 'Edit employee' : 'Add employee' }}
+      </h2>
+
+      <button (click)="closeModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+    </div>
+
+    <!-- FORM -->
+    <div class="form-grid">
+
+      <div class="field">
+
+        <label>Name</label>
+
+        <input
+          type="text"
+          [(ngModel)]="form.name"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Email</label>
+
+        <input
+          type="email"
+          [(ngModel)]="form.email"
+        >
+
+      </div>
+
+    </div>
+
+    <div class="form-grid three">
+
+      <div class="field">
+
+        <label>Role</label>
+
+        <select [(ngModel)]="form.role">
+
+          <option value="admin">Admin</option>
+          <option value="tl">Team Lead</option>
+          <option value="developer">Developer</option>
+          <option value="tester">Tester</option>
+
+        </select>
+
+      </div>
+
+      <div class="field">
+
+        <label>Availability %</label>
+
+        <input
+          type="number"
+          [(ngModel)]="form.availability"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label>Utilization %</label>
+
+        <input
+          type="number"
+          [(ngModel)]="form.utilization"
+        >
+
+      </div>
+
+    </div>
+
+    <!-- SKILLS -->
+    <div class="field">
+
+      <label>Skills</label>
+
+      <div class="skills-box">
+
+        <button
+          type="button"
+          *ngFor="let skill of allSkills"
+          (click)="toggleSkill(skill)"
+          [class.active]="form.skills.includes(skill)"
+        >
+          {{ skill }}
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+
+      <button class="save-btn" (click)="saveEmployee()">
+
+        {{ editingEmployee ? 'Save changes' : 'Add employee' }}
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

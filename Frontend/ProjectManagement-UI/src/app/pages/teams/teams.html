@@ -1,1 +1,128 @@
-<p>teams works!</p>
+<div class="teams-page">
+
+    <h1>Teams</h1>
+
+    <p>
+        Members grouped by role with availability and workload.
+    </p>
+
+
+    <div class="team-section" *ngFor="let group of groupedTeams">
+
+        <!-- Section header -->
+        <div class="section-header">
+
+            <i class="fa-solid fa-users"></i>
+
+            <h2>
+                {{ roleLabels[group.role] }}
+            </h2>
+
+            <span class="count">
+                {{ group.members.length }}
+            </span>
+
+        </div>
+
+
+        <!-- Cards -->
+        <div class="member-grid">
+
+            <div class="member-card" *ngFor="let member of group.members">
+
+                <!-- top -->
+                <div class="card-top">
+
+                    <div class="profile">
+
+                        <div class="avatar">
+
+                            {{ getInitials(member.name) }}
+
+                        </div>
+
+                        <div>
+
+                            <div class="name">
+                                {{ member.name }}
+                            </div>
+
+                            <div class="role">
+                                {{ member.role }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status" [ngClass]="loadStatus(member.utilization).class">
+
+                        <span class="dot"></span>
+
+                        {{ loadStatus(member.utilization).label }}
+
+                    </div>
+
+                </div>
+
+
+                <!-- workload -->
+                <div class="info-row">
+
+                    <span>Workload</span>
+
+                    <strong>
+                        {{ member.utilization }}%
+                    </strong>
+
+                </div>
+
+                <div class="progress">
+
+                    <div class="progress-fill" [style.width.%]="member.utilization">
+                    </div>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>Assigned hours</span>
+
+                    <strong>
+                        {{ assignedHoursFor(member.id) }}h
+                    </strong>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>Availability</span>
+
+                    <strong>
+                        {{ member.availability }}%
+                    </strong>
+
+                </div>
+
+
+                <!-- skills -->
+                <div class="skills">
+
+                    <span *ngFor="let skill of member.skills">
+
+                        {{ skill }}
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

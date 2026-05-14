@@ -1,56 +1,231 @@
+// allocation.component.ts
+
 import { Component } from '@angular/core';
-import { EMPLOYEES, PROJECTS } from '../../shared/mockData/mock-data';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+import {
+  EMPLOYEES,
+  PROJECTS,
+  ALL_SKILLS
+} from '../../shared/mockData/mock-data';
+import { Project } from '../../shared/mockData/types';
+
 @Component({
   selector: 'app-allocation',
-  imports: [RouterOutlet, FormsModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule
+  ],
   templateUrl: './allocation.html',
-  styleUrl: './allocation.css',
+  styleUrls: ['./allocation.css']
 })
 export class Allocation {
 
- employees = EMPLOYEES;
   projects = PROJECTS;
 
-  selectedProjectId: string = '';
-  selectedMembers: any[] = [];
+  employees = EMPLOYEES;
 
-  constructor() { }
+  allSkills = ALL_SKILLS;
 
-  ngOnInit(): void {
-    this.selectedProjectId = this.projects[0].id;
+  selectedProjectId = this.projects[0].id;
+
+
+
+  selectedEmployees:any[]=[];
+  showDropdown = false;
+  showRoleDropdown = false;
+  showSkillDropdown = false;
+  showLoadDropdown=false;
+  allocationConfirmed = false;
+
+  roles = [
+    { value:'all', label:'All roles' },
+    { value:'developer', label:'Developer' },
+    { value:'tester', label:'Tester' },
+    { value:'tl', label:'Team Lead' }
+  ];
+
+
+  loads = [
+    { value:'Skill Match', label:'Skill Match' },
+    { value:'WorkLoad', label:'WorkLoad' }
+  ];
+
+
+    roleFilter = 'all';
+    loadFilter = this.loads[0].value; 
+    skillFilter = 'all';
+  get roleFilterLabel(){
+
+    return this.roles.find(
+      x => x.value == this.roleFilter
+    )?.label;
+
   }
 
-  get selectedProject() {
-    return this.projects.find(
-      x => x.id == this.selectedProjectId
-    );
+
+   get loadFilterLabel(){
+
+    return this.loads.find(
+      x => x.value == this.loadFilter
+    )?.label;
+
   }
 
-  toggleMember(emp:any){
+  selectRole(role:any){
 
-    let index =
-      this.selectedMembers.findIndex(
-        x => x.id == emp.id
-      );
+    this.roleFilter = role.value;
+    this.showRoleDropdown = false;
 
-    if(index>-1){
-      this.selectedMembers.splice(index,1);
+  }
+
+
+  selectProjectCondition(Load:any){
+
+    this.loadFilter = Load.value;
+    this.showLoadDropdown = false;
+
+  }
+
+  selectSkill(skill:string){
+
+    this.skillFilter = skill;
+    this.showSkillDropdown = false;
+
+  }
+
+get totalAllocatedHours(){
+
+  return this.selectedEmployees.reduce(
+    (sum, emp)=> sum + Number(emp.hours || 0),
+    0
+  );
+
+}
+  
+
+get selectedProject(): Project {
+
+  return this.projects.find(
+    x => x.id == this.selectedProjectId
+  )!;
+
+}
+
+selectProject(project:any){
+  this.selectedProjectId = project.id;
+  this.showDropdown = false;
+}
+
+
+  get filteredEmployees(){
+
+    return this.employees
+      .filter(emp => {
+
+        const roleMatch =
+          this.roleFilter === 'all'
+          || emp.role === this.roleFilter;
+
+        const skillMatch =
+          this.skillFilter === 'all'
+          || emp.skills.includes(this.skillFilter);
+
+        return roleMatch && skillMatch;
+
+      })
+      .map(emp => {
+
+        const matched =
+          emp.skills.filter((s:string)=>
+            this.selectedProject.requiredSkills.includes(s)
+          );
+
+        const score =
+          Math.round(
+            (matched.length /
+            this.selectedProject.requiredSkills.length) * 70
+          )
+          + Math.round((emp.availability / 100) * 30);
+
+        return {
+          ...emp,
+          score
+        };
+
+      })
+      .sort((a,b)=>b.score-a.score);
+
+  }
+
+  getInitials(name:string){
+
+    return name
+      .split(' ')
+      .map(x=>x[0])
+      .join('')
+      .substring(0,2);
+
+  }
+
+  getAvailability(value:number){
+
+    if(value >= 60){
+      return 'high';
+    }
+
+    if(value >= 30){
+      return 'medium';
+    }
+
+    return 'low';
+
+  }
+
+  toggleEmployee(emp:any){
+
+    const exists =
+      this.selectedEmployees.find(x=>x.id===emp.id);
+
+    if(exists){
+
+      this.selectedEmployees =
+        this.selectedEmployees.filter(x=>x.id!==emp.id);
+
     }
     else{
-      this.selectedMembers.push(emp);
+
+      this.selectedEmployees.push({
+        ...emp,
+        hours:40
+      });
+
     }
+
   }
 
-  isSelected(id:string){
-    return this.selectedMembers.some(
-      x=>x.id==id
+  removeEmployee(emp:any){
+
+    this.selectedEmployees =
+      this.selectedEmployees.filter(x=>x.id!==emp.id);
+
+  }
+
+  isSelected(emp:any){
+
+    return !!this.selectedEmployees.find(
+      x=>x.id===emp.id
     );
+
   }
 
   confirmAllocation(){
-    alert("Allocation confirmed");
+
+    alert('Allocation Confirmed');
+  this.allocationConfirmed = true;
+
   }
 
 }

@@ -5,7 +5,7 @@
 
     <div>
       <div class="title-row">
-        <h2>{{ project.name }}</h2>
+        <h6>{{ project?.name }}</h6>
 
         <span class="status-badge active">
           Active
@@ -17,7 +17,7 @@
       </div>
 
       <p class="description">
-        {{ project.description }}
+        {{ project?.description }}
       </p>
     </div>
 
@@ -69,29 +69,30 @@
 
   <!-- Actions -->
   <div class="action-buttons">
+    <div>
+      <h5 style="margin-top: 10px;">ASSIGNED TEAM</h5>
+    </div>
 
-    <button
-      class="allocate-btn"
-      (click)="autoAllocate()">
+    <div style="display: flex;gap: 10px;">
+      <button class="allocate-btn" (click)="autoAllocate()">
 
-      Open Smart Allocation →
+        Open Smart Allocation →
 
-    </button>
+      </button>
 
-    <button
-      class="suggest-btn"
-      (click)="confirmAllocation()">
+      <button class="suggest-btn" (click)="confirmAllocation()">
 
-      Re-suggest
+        Re-suggest
 
-    </button>
+      </button>
+    </div>
+
 
   </div>
 
   <!-- Team Table -->
   <div class="team-section">
 
-    <h5>ASSIGNED TEAM</h5>
 
     <table>
 

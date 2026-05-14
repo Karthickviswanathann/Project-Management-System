@@ -1,58 +1,446 @@
-<div class="container">
+<!-- allocation.component.html -->
 
-  <h2>Smart Allocation</h2>
+<div class="allocation-page">
 
-  <!-- project dropdown -->
-  <select [(ngModel)]="selectedProjectId">
+  <!-- HEADER -->
+  <div class="page-header">
 
-    <option
-      *ngFor="let p of projects"
-      [value]="p.id">
+    <h1>Smart Allocation</h1>
 
-      {{p.name}}
+    <p>
+      Review system-suggested team members, then confirm to allocate.
+    </p>
 
-    </option>
+  </div>
 
-  </select>
+  <!-- PROJECT BAR -->
+  <div class="project-bar">
 
+    <div class="project-left">
 
-  <table>
+      <label>PROJECT</label>
 
-    <tr>
-      <th>Select</th>
-      <th>Name</th>
-      <th>Role</th>
-      <th>Availability</th>
-    </tr>
+      <div class="custom-dropdown">
 
+        <div class="dropdown-header" (click)="showDropdown = !showDropdown">
 
-    <tr *ngFor="let emp of employees">
+          {{ selectedProject.name }}
 
-      <td>
+          <span class="arrow">
+            <i class="fa-solid fa-chevron-down"></i>
+          </span>
 
-        <input
-          type="checkbox"
-          [checked]="isSelected(emp.id)"
-          (change)="toggleMember(emp)">
-
-      </td>
-
-      <td>{{emp.name}}</td>
-
-      <td>{{emp.role}}</td>
-
-      <td>{{emp.availability}}%</td>
-
-    </tr>
-
-  </table>
+        </div>
 
 
-  <button
-    (click)="confirmAllocation()">
+        <div class="dropdown-list" *ngIf="showDropdown">
 
-    Confirm Allocation
+          <div class="dropdown-item" *ngFor="let p of projects" (click)="selectProject(p)">
 
-  </button>
+            <span>{{ p.name }}</span>
+
+            <i *ngIf="selectedProjectId==p.id" class="fa-solid fa-check">
+            </i>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="project-stats">
+
+      <div class="stat">
+        <small>Priority</small>
+        <span class="badge high">
+          {{ selectedProject.priority }}
+        </span>
+      </div>
+
+      <div class="stat">
+        <small>Status</small>
+        <span class="badge active">
+          {{ selectedProject.status }}
+        </span>
+      </div>
+
+      <div class="stat">
+        <small>Estimated</small>
+        <strong>{{ selectedProject.estimatedHours }}h</strong>
+      </div>
+
+      <div class="stat">
+        <small>Required skills</small>
+        <strong>{{ selectedProject.requiredSkills.length }}</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+  <div class="allocation-grid">
+
+    <!-- LEFT -->
+    <div class="members-card">
+
+      <!-- CARD HEADER -->
+      <div class="card-header">
+
+        <div class="header-left">
+
+          <i class="fa-solid fa-wand-magic-sparkles section-icon"></i>
+          <h3>Suggested team members</h3>
+
+          <span class="count">
+            {{ filteredEmployees.length }}
+          </span>
+
+        </div>
+
+        <div class="filters">
+
+          <!-- Role -->
+          <div class="custom-dropdown1">
+
+            <div class="dropdown-header1" (click)="showRoleDropdown = !showRoleDropdown">
+
+              {{ roleFilterLabel }}
+
+              <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+
+            <div class="dropdown-list1" *ngIf="showRoleDropdown">
+
+              <div class="dropdown-item1" *ngFor="let role of roles" (click)="selectRole(role)">
+
+                <span>{{ role.label }}</span>
+
+                <i *ngIf="roleFilter==role.value" class="fa-solid fa-check">
+                </i>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Skills -->
+          <div class="custom-dropdown1">
+
+            <div class="dropdown-header1" (click)="showSkillDropdown = !showSkillDropdown">
+
+              {{ skillFilter }}
+
+              <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+
+            <div class="dropdown-list1" *ngIf="showSkillDropdown">
+
+              <div class="dropdown-item1" (click)="selectSkill('all')">
+
+                <span>All skills</span>
+
+                <i *ngIf="skillFilter=='all'" class="fa-solid fa-check">
+                </i>
+
+              </div>
+
+
+              <div class="dropdown-item1" *ngFor="let skill of allSkills" (click)="selectSkill(skill)">
+
+                <span>{{ skill }}</span>
+
+                <i *ngIf="skillFilter==skill" class="fa-solid fa-check">
+                </i>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="custom-dropdown1">
+
+            <div class="dropdown-header1" (click)="showLoadDropdown = !showLoadDropdown">
+
+              {{ loadFilterLabel }}
+
+              <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+
+            <div class="dropdown-list1" *ngIf="showLoadDropdown">
+
+              <div class="dropdown-item1" *ngFor="let load of loads" (click)="selectProjectCondition(load)">
+
+                <span>{{ load.label }}</span>
+
+                <i *ngIf="loadFilter==load.value" class="fa-solid fa-check">
+                </i>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- TABLE -->
+      <div class="table-wrapper">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th></th>
+              <th>Member</th>
+              <th>Role</th>
+              <th>Skills</th>
+              <th>Match</th>
+              <th>Workload</th>
+              <th>Availability</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr *ngFor="let emp of filteredEmployees">
+
+              <td>
+
+                <input type="checkbox" [checked]="isSelected(emp)" (change)="toggleEmployee(emp)">
+
+              </td>
+
+              <td>
+
+                <div class="member-cell">
+
+
+                  <div>
+
+                    <div class="member-name">
+                      {{ emp.name }}
+                    </div>
+
+                    <div class="top-pick" *ngIf="emp.score >= 55">
+                      TOP PICK
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </td>
+
+              <td class="role">
+                {{ emp.role }}
+              </td>
+
+              <td>
+
+                <div class="skill-list">
+
+                  <span *ngFor="let skill of emp.skills"
+                    [class.matched]="selectedProject.requiredSkills.includes(skill)">
+                    {{ skill }}
+                  </span>
+
+                </div>
+
+              </td>
+
+              <td>
+
+                <div class="match-box">
+
+                  <div class="progress">
+
+                    <div class="progress-fill" [style.width.%]="emp.score"></div>
+
+                  </div>
+
+                  <span>
+                    {{ emp.score }}
+                  </span>
+
+                </div>
+
+              </td>
+
+              <td>
+
+                {{ emp.utilization }}%
+
+              </td>
+
+              <td>
+
+                <span class="availability" [ngClass]="getAvailability(emp.availability)">
+                  {{ getAvailability(emp.availability) }}
+                </span>
+
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="confirm-card">
+
+      <!-- Header -->
+      <div class="confirm-header">
+
+        <div class="header-title">
+
+          <i class="fa-solid fa-circle-check"></i>
+
+          <h6>Confirm allocation</h6>
+
+        </div>
+
+        <p>
+          Adjust hours for each selected member, then confirm.
+        </p>
+
+      </div>
+
+
+      <!-- Body -->
+      <div class="confirm-body">
+
+        <!-- Empty state -->
+        <div class="empty-state" *ngIf="selectedEmployees.length===0">
+
+          <i class="fa-solid fa-users"></i>
+
+          <p>
+            Select members from the list to begin.
+          </p>
+
+        </div>
+
+
+        <!-- Selected members -->
+        <div *ngIf="selectedEmployees.length > 0">
+
+          <div class="selected-user" *ngFor="let emp of selectedEmployees">
+
+            <div class="selected-top">
+
+              <div>
+
+                <strong>
+                  {{ emp.name }}
+                </strong>
+
+                <small>
+                  {{ emp.role }}
+                </small>
+
+              </div>
+
+
+              <button (click)="removeEmployee(emp)">
+
+                Remove
+
+              </button>
+
+            </div>
+
+
+            <div class="hours-row">
+
+              <label>
+                Hours
+              </label>
+
+              <input type="number" [(ngModel)]="emp.hours">
+
+            </div>
+
+          </div>
+
+
+          <!-- Summary -->
+          <div class="allocation-summary">
+
+            <div class="summary-row total-row">
+
+              <span>
+                Total allocated
+              </span>
+
+              <strong>
+                {{ totalAllocatedHours }}h
+              </strong>
+
+            </div>
+
+
+            <div class="summary-row estimate-row">
+
+              <span>
+                Project estimate
+              </span>
+
+              <span>
+                {{ selectedProject.estimatedHours }}h
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Footer -->
+      <div class="confirm-footer">
+
+        <button class="confirm-btn" [disabled]="selectedEmployees.length===0" (click)="confirmAllocation()">
+
+          Confirm Allocation
+
+        </button>
+
+
+        <p class="success-msg" *ngIf="allocationConfirmed">
+
+          Allocation confirmed for this session.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </div>

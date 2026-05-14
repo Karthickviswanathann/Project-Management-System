@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input ,Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-project-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './project-details.html',
   styleUrls: ['./project-details.css'],
 })
@@ -11,6 +12,9 @@ export class ProjectDetails {
 
   @Input()
   project:any;
+
+  @Output()
+  close = new EventEmitter<void>();
 
   suggested:any[]=[];
 
@@ -25,9 +29,9 @@ export class ProjectDetails {
     alert("Allocation confirmed");
 
   }
-  closeDetails(){
+   closeDetails(){
 
-    this.project=null;
+    this.close.emit();
 
   }
 

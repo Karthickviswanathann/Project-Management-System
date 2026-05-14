@@ -100,5 +100,5 @@
 
 
 
-<app-project-details *ngIf="detailsModal" [project]="selectedProject">
+<app-project-details *ngIf="detailsModal" [project]="selectedProject" (close)="detailsModal = false">
 </app-project-details>

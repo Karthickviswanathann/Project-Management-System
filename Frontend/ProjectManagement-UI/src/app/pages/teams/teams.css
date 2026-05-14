@@ -1,0 +1,162 @@
+.teams-page h1{
+  font-size:18px;
+  margin-bottom:8px;
+}
+
+.teams-page p{
+  color:#64748b;
+  margin-bottom:30px;
+}
+
+
+.section-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin: 10px 0px;
+
+}
+
+.section-header h2{
+  font-size:14px;
+  font-weight:600;
+}
+
+.count{
+  background:#f1f5f9;
+  border-radius:20px;
+  padding:2px 10px;
+  font-size:12px;
+}
+
+
+.member-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+
+.member-card{
+  border:1px solid #e2e8f0;
+  border-radius:14px;
+  padding:20px;
+  background:white;
+}
+
+
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+
+.profile{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #6b728026;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+
+
+.name{
+  font-weight:600;
+}
+
+.role{
+  font-size:12px;
+  color:#64748b;
+}
+
+
+.status{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+}
+
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+}
+
+
+.overloaded{
+  color:red;
+}
+
+.overloaded .dot{
+  background:red;
+}
+
+
+.moderate{
+  color:orange;
+}
+
+.moderate .dot{
+  background:orange;
+}
+
+
+.available{
+  color:green;
+}
+
+.available .dot{
+  background:green;
+}
+
+
+.info-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:12px;
+  margin-top:12px;
+}
+
+
+.progress{
+  height:6px;
+  background:#e2e8f0;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:8px;
+}
+
+
+.progress-fill{
+  height:100%;
+  background:#1e293b;
+}
+
+
+.skills{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:16px;
+}
+
+.skills span{
+  font-size:10px;
+  border:1px solid #cbd5e1;
+  border-radius:20px;
+  padding:4px 8px;
+}

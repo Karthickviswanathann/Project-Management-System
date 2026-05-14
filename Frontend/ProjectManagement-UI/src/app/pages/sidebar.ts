@@ -270,6 +270,13 @@ export class SidebarComponent {
     icon: 'assignment',
     roles: ['admin', 'tl']
   },
+
+  {
+    label: 'Teams',
+    route: '/teams',
+    icon: 'account_box',
+    roles: ['admin']
+  },
   {
     label: 'Resources',
     route: '/resources',

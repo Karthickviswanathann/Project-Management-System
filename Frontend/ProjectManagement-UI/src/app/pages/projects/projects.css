@@ -1,7 +1,6 @@
 .projects-page {
   padding: 24px;
   background: #f5f7fb;
-  min-height: 85vh;
 }
 
 .header {
@@ -40,7 +39,6 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   height: 70vh;
-  overflow-y: auto;
 }
 
 .project-card {

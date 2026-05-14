@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-projects',
+  standalone:true,
   imports: [AddProject, ProjectDetails,CommonModule, FormsModule],
   templateUrl: './projects.html',
   styleUrls: ['./projects.css'],
@@ -26,6 +27,7 @@ export class Projects {
   }
 
   openDetails(project:any){
+    console.log('HITDETAILS');
     this.selectedProject=project;
     this.detailsModal=true;
   }
